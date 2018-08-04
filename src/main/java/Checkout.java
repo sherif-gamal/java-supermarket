@@ -3,8 +3,9 @@ import models.PricingRule;
 import models.Product;
 import models.RuleDoesNotApplyException;
 
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sherif on 4/8/18.
