@@ -42,7 +42,8 @@ public class Checkout {
             }
         });
 
-        basket.entrySet()
+        basket.entrySet().stream()
+                .filter(e -> catalogue.findProduct(e.getKey()) != null)
                 .forEach(e -> finalBasket.put(catalogue.findProduct(e.getKey()), e.getValue()));
 
         return finalBasket.entrySet()

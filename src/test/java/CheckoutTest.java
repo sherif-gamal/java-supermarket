@@ -122,6 +122,20 @@ public class CheckoutTest {
     }
 
     @Test
+    public void testNonExistentProduct() {
+        Catalogue catalogue = buildCatalogue();
+        List<PricingRule> pricingRules = createPricingRules(catalogue);
+        Checkout checkout = new Checkout(pricingRules);
+        checkout.setCatalogue(catalogue);
+
+        String[] skus = new String[]{"mbp", "vga", "xyz", "ipd"};
+        for (String sku: skus) {
+            checkout.scan(sku);
+        }
+        Assert.assertEquals(1949.98, checkout.total(), 0);
+    }
+
+    @Test
     public void testAll() {
         Catalogue catalogue = buildCatalogue();
         List<PricingRule> pricingRules = createPricingRules(catalogue);
